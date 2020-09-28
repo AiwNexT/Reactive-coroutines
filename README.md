@@ -17,7 +17,7 @@ You can create a single task using the code below
 
 ```Kotlin
 task({
-println("Some task")
+  println("Some task")
 }, Workers.default())
-.execute()
+  .execute()
 ```
