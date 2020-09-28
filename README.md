@@ -5,7 +5,7 @@ You can run single tasks, subscribe to different events, create streams to seque
 
 **Usage**
 
-To use the library, you need to implement the RCScope interface. 
+To use the features, you need to implement the RCScope interface. 
 
 ```Kotlin
 class MainActivity : AppCompatActivity(), RCScope
