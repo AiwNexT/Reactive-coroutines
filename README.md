@@ -39,7 +39,12 @@ singleTask.execute()
 
 **Different workers**
 
-There are 5 different types of workers: ui, io, default, dedicated, merged. Each of them represents the coroutine context. Ui executes your code with access to the ui thread. Io represents the io coroutine context. A default one is the most common one. It executes your code in the background using a fixed thread pool equal to the CPU cores number. A dedicated one uses a single thread for an operation. A merged one represents a context based on a thread pool with a number of threads you specified.
+There are 5 different types of workers: ui, io, default, dedicated, merged. Each of them represents the coroutine context. 
+1. Ui executes your code with access to the ui thread. 
+2. Io represents the io coroutine context.
+3. A default one is the most common one. It executes your code in the background using a fixed thread pool equal to the CPU cores number.
+4. A dedicated one uses a single thread for an operation.
+5. A merged one represents a context based on a thread pool with a number of threads you specified.
 
 ```Kotlin
 Workers.ui()
