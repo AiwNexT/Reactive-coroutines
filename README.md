@@ -120,3 +120,5 @@ stream.stream(object : Stream<Boolean, Unit> {
   }
 }, Workers.dedicated())
 ```
+
+You can add onSchedule and onComplete operations for streams as well. To run your stream, just call execute().
