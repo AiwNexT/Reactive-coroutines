@@ -13,11 +13,14 @@ class MainActivity : AppCompatActivity(), RCScope
 
 **Single tasks**
 
-You can create a single task using the code below
+To create a single task, use the code below.
 
 ```Kotlin
-task({
+val singleTask = task({
   println("Some task")
 }, Workers.default())
-  .execute()
 ```
+
+You can add onComplete and onSchedule options to execute some code when your task will be started and/or completed. You can specify a worker for both onComplete and onSchedule operations.
+
+
