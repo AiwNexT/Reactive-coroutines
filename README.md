@@ -37,3 +37,14 @@ To start your task, just do the following:
 singleTask.execute()
 ```
 
+**Different workers**
+
+There are 5 different types of workers: ui, io, default, dedicated, merged. Each of them represents the coroutine context. Ui executes your code with access to the ui thread. Io represents the io coroutine context. A default one is the most common one. It executes your code in the background. A dedicated one uses a single thread for an operation. A merged one represents a context based on a thread pool with a number of threads you specified.
+
+```Kotlin
+Workers.ui()
+Workers.io()
+Workers.default()
+Workers.dedicated()
+Workers.merged(threadCount)
+```
