@@ -30,3 +30,10 @@ singleTask.doOnComplete { println("Task completed") }
 singleTask.setOnScheduleWorker(Workers.dedicated())
 singleTask.setOnCompleteWorker(Workers.ui())
 ```
+
+To start your task, just do the following:
+
+```Kotlin
+singleTask.execute()
+```
+
