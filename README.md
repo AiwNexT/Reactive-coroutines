@@ -23,4 +23,10 @@ val singleTask = task({
 
 You can add onComplete and onSchedule options to execute some code when your task will be started and/or completed. You can specify a worker for both onComplete and onSchedule operations.
 
+```Kotlin
+singleTask.doOnSchedule { println("Task started") }
+singleTask.doOnComplete { println("Task completed") }
 
+singleTask.setOnScheduleWorker(Workers.dedicated())
+singleTask.setOnCompleteWorker(Workers.ui())
+```
