@@ -79,3 +79,44 @@ subscriber.subscribe(object : Subscription<String> {
   }
 }, Workers.io())
 ```
+
+You can add onComplete and onSchedule blocks for subscribers as well. 
+To run your subscriber, just add:
+
+```Kotlin
+subscriber.execute()
+```
+
+**Streams**
+
+Streams can help you to pass some parameters for future asynchronous processing. You can create as long streams as you wish. To create a stream, just add:
+
+```Kotlin
+val stream = stream({
+  return@stream 10
+}, Workers.io())
+```
+
+Then you can add another stream component by adding the following code:
+
+```Kotlin
+stream.stream(object : Stream<Int, String> {
+  override fun onComplete(result: Int): String {
+    println("The result is $result")
+    return result.toString()
+  }
+}, Workers.default())
+        
+stream.stream(object : Stream<String, Boolean> {
+  override fun onComplete(result: String): Boolean {
+    println("The result is $result")
+    return result.toInt() == 10
+  }
+}, Workers.ui())
+        
+stream.stream(object : Stream<Boolean, Unit> {
+  override fun onComplete(result: Boolean) {
+    println("The final result is $result")
+  }
+}, Workers.dedicated())
+```
