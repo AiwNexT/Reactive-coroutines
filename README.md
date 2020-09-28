@@ -53,3 +53,29 @@ Workers.default()
 Workers.dedicated()
 Workers.merged(threadCount)
 ```
+
+**Subscribers**
+
+You can create a subscriber and retrieve the result of your code asynchronously. To create a subscriber, add the following lines of code:
+
+```Kotlin
+val subscriber = subscriber({
+  return@subscriber "Something happened"
+}, Workers.ui())
+```
+
+Then you can subscribe to it and receive results asynchronously. You can create as many subscriptions as you wish. Each of them will be executed with the appropriate worker.
+
+```Kotlin
+subscriber.subscribe(object : Subscription<String> {
+  override fun onComplete(result: String) {
+    println("What happened? $result")
+  }
+}, Workers.default())
+
+subscriber.subscribe(object : Subscription<String> {
+  override fun onComplete(result: String) {
+    println("Here is some result: $result")
+  }
+}, Workers.io())
+```
