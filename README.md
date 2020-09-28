@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity(), RCScope
 You can create a single task using the code below
 
 ```Kotlin
-  task({
-    println("Some task")
-  }, Workers.default())
-    .execute()
+task({
+println("Some task")
+}, Workers.default())
+.execute()
 ```
