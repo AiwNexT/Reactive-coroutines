@@ -5,6 +5,8 @@ You can run single tasks, subscribe to different events, create streams to seque
 
 **Usage**
 
+To use the library, you need to implement the RCScope interface. 
+
 ```Kotlin
 class MainActivity : AppCompatActivity(), RCScope
 ```
@@ -14,5 +16,8 @@ class MainActivity : AppCompatActivity(), RCScope
 You can create a single task using the code below
 
 ```Kotlin
-  fun execute()
+  task({
+    println("Some task")
+  }, Workers.default())
+    .execute()
 ```
