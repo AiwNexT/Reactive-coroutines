@@ -4,6 +4,7 @@ RC is a lightweight Android library built for better asynchronous operations man
 You can run single tasks, subscribe to different events, create streams to sequentially process code with different coroutine contexts or simply fire chain to execute something sequentially.
 
 **Single tasks**
+
 You can create a single task using the code below
 
 ```Kotlin
