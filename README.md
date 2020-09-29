@@ -123,3 +123,32 @@ stream.add(object : StreamComponent<Boolean, Unit> {
 ```
 
 You can add onSchedule and onComplete operations for streams as well. To run your stream, just call execute().
+
+**Chains**
+
+Chains are useful when you want to execute some code sequentially, but when you do not any result to be returned (something like fire and forget).
+To create a chain, write the following code:
+
+```Kotlin
+val chain = chain()
+```
+
+After that just add your blocks and specify workers for each of them
+
+```Kotlin
+chain.add({
+  print("Some block")
+}, Workers.default())
+
+chain.add({
+  print("Another block")
+}, Workers.default())
+
+chain.add({
+  print("Yet another block")
+}, Workers.ui())
+```
+
+You can run your chain by calling execute()
+
+The library is in development and I plan to add more and more features in future updates.
