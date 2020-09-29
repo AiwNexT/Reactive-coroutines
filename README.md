@@ -16,7 +16,17 @@ implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 ```
 
-To use the features, you need to implement the RCScope interface. 
+And also you need to add Jcenter to repositories in your project's build.gradle
+
+```Gradle
+buildscript {    
+  repositories {
+    jcenter()
+  }
+}
+```
+
+To start using RC in your class, you need to implement the RCScope interface. 
 
 ```Kotlin
 class MainActivity : AppCompatActivity(), RCScope
