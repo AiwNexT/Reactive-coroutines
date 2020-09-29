@@ -1,4 +1,5 @@
 # RC: reactive coroutines
+[ ![Download](https://api.bintray.com/packages/aiwnext/RC/com.aiwnext.rc/images/download.svg?version=1.0.1) ](https://bintray.com/aiwnext/RC/com.aiwnext.rc/1.0.1/link)
 
 RC is a lightweight Android library built for better asynchronous operations management. It is like ReaciveX, but less complicated and built on Kotlin coroutines. 
 You can run single tasks, subscribe to different events, create streams to sequentially process code with different coroutine contexts or simply fire chain to execute something sequentially.
