@@ -57,7 +57,7 @@ Workers.merged(threadCount)
 
 **Subscriptions**
 
-You can create a subscription and retrieve the result of your code asynchronously. To create a subscriber, add the following lines of code:
+You can create a subscription and retrieve the result of your code asynchronously. To create a subscription, add the following lines of code:
 
 ```Kotlin
 val subscription = subscription({
@@ -65,7 +65,7 @@ val subscription = subscription({
 }, Workers.ui())
 ```
 
-Then you can subscribe to it and receive results asynchronously. You can create as many subscriptions as you wish. Each of them will be executed with the appropriate worker.
+Then you can subscribe to it and receive results asynchronously. You can add as many subscribers as you wish. Each of them will be executed with the appropriate worker.
 
 ```Kotlin
 subscription.subscribe(object : Subscriber<String> {
@@ -81,11 +81,11 @@ subscription.subscribe(object : Subscriber<String> {
 }, Workers.io())
 ```
 
-You can add onComplete and onSchedule blocks for subscribers as well. 
-To run your subscriber, just add:
+You can add onComplete and onSchedule blocks for subscriptions as well. 
+To run your subscription, just add:
 
 ```Kotlin
-subscriber.execute()
+subscription.execute()
 ```
 
 **Streams**
