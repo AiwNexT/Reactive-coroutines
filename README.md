@@ -20,6 +20,7 @@ val singleTask = task({
   println("Some task")
 }, Workers.default())
 ```
+You can skip the worker field and the default worker will be used automatically.
 
 You can add onComplete and onSchedule options to execute some code when your task will be started and/or completed. You can specify a worker for both onComplete and onSchedule operations.
 
@@ -54,26 +55,26 @@ Workers.dedicated()
 Workers.merged(threadCount)
 ```
 
-**Subscribers**
+**Subscriptions**
 
-You can create a subscriber and retrieve the result of your code asynchronously. To create a subscriber, add the following lines of code:
+You can create a subscription and retrieve the result of your code asynchronously. To create a subscriber, add the following lines of code:
 
 ```Kotlin
-val subscriber = subscriber({
-  return@subscriber "Something happened"
+val subscription = subscription({
+  return@subscription "Something happened"
 }, Workers.ui())
 ```
 
 Then you can subscribe to it and receive results asynchronously. You can create as many subscriptions as you wish. Each of them will be executed with the appropriate worker.
 
 ```Kotlin
-subscriber.subscribe(object : Subscription<String> {
+subscription.subscribe(object : Subscriber<String> {
   override fun onComplete(result: String) {
     println("What happened? $result")
   }
 }, Workers.default())
 
-subscriber.subscribe(object : Subscription<String> {
+subscription.subscribe(object : Subscriber<String> {
   override fun onComplete(result: String) {
     println("Here is some result: $result")
   }
