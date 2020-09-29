@@ -101,21 +101,21 @@ val stream = stream({
 Then you can add another stream component by adding the following code:
 
 ```Kotlin
-stream.stream(object : Stream<Int, String> {
+stream.add(object : StreamComponent<Int, String> {
   override fun onComplete(result: Int): String {
     println("The result is $result")
     return result.toString()
   }
 }, Workers.default())
-        
-stream.stream(object : Stream<String, Boolean> {
+
+stream.add(object : StreamComponent<String, Boolean> {
   override fun onComplete(result: String): Boolean {
     println("The result is $result")
     return result.toInt() == 10
   }
 }, Workers.ui())
-        
-stream.stream(object : Stream<Boolean, Unit> {
+
+stream.add(object : StreamComponent<Boolean, Unit> {
   override fun onComplete(result: Boolean) {
     println("The final result is $result")
   }
