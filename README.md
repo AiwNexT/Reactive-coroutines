@@ -10,6 +10,10 @@ To use the library, you will need to add the dependency in your app's build.grad
 
 ```Gradle
 implementation 'com.aiwnext.rc:reactive-coroutines:1.0.1'
+
+// You also need these 2 dependencies for the library to work
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 ```
 
 To use the features, you need to implement the RCScope interface. 
