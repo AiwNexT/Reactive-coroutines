@@ -1,11 +1,32 @@
 # RC: reactive coroutines
+[ ![Download](https://api.bintray.com/packages/aiwnext/RC/com.aiwnext.rc/images/download.svg?version=1.0.1) ](https://bintray.com/aiwnext/RC/com.aiwnext.rc/1.0.1/link)
 
 RC is a lightweight Android library built for better asynchronous operations management. It is like ReaciveX, but less complicated and built on Kotlin coroutines. 
 You can run single tasks, subscribe to different events, create streams to sequentially process code with different coroutine contexts or simply fire chain to execute something sequentially.
 
 **Usage**
 
-To use the features, you need to implement the RCScope interface. 
+To use the library, you will need to add the dependency in your app's build.gradle
+
+```Gradle
+implementation 'com.aiwnext.rc:reactive-coroutines:1.0.1'
+
+// You also need these 2 dependencies for the library to work
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+```
+
+And also you need to add Jcenter to repositories in your project's build.gradle
+
+```Gradle
+buildscript {    
+  repositories {
+    jcenter()
+  }
+}
+```
+
+To start using RC in your class, you need to implement the RCScope interface. 
 
 ```Kotlin
 class MainActivity : AppCompatActivity(), RCScope
@@ -152,3 +173,20 @@ chain.add({
 You can run your chain by calling execute()
 
 The library is in development and I plan to add more and more features in future updates.
+
+License
+-------
+
+    Copyright 2020 Alexander Kucherenko
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
