@@ -6,6 +6,12 @@ You can run single tasks, subscribe to different events, create streams to seque
 
 **Usage**
 
+To use the library, you will need to add the dependency in your app's build.gradle
+
+```Gradle
+implementation 'com.aiwnext.rc:reactive-coroutines:1.0.1'
+```
+
 To use the features, you need to implement the RCScope interface. 
 
 ```Kotlin
